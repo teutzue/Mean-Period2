@@ -1,0 +1,92 @@
+1.Why would you consider a Scripting Language as JavaScript as your Backend Platform?
+
+-It allows you to use the same language on the server and the client. This increases the amount of code that
+can be shared and decreases the cost and effort required to hire developers, since you don't need to hire different
+ people to write code in different places.
+
+-It's crazy fast. Node.js (which is where most of the server-side JS buzz is these days) is an incredibly fast evented
+IO framework that makes it a cinch to write highly scalable network programs.
+
+-JavaScript is awesome. Although it has many notorious "bad parts", JavaScript is pretty awesome on the whole.
+It's object-oriented, dynamically typed, prototypal, and it supports lambdas and closures. This allows for rapid
+development and makes the language flexible enough and expressive enough to meet a wide range of needs.
+
+2.Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using
+for example Java/JAX-RS/Tomcat
+
+Pros:
+-Node.js operates on a single-thread, using non-blocking I/O calls
+-Where Node really shines is in building fast, scalable network applications, as it’s capable of handling a huge
+number of simultaneous connections with high throughput, which equates to high scalability. (the event loop)
+-you can build it in Javascript top-to-bottom, even down to the database level if you use JSON storage Object
+DB like MongoDB. This eases development (including hiring) significantly.
+-Crawlers receive a fully-rendered HTML response, which is far more SEO-friendly than, say, a Single Page
+Application or a websockets app run on top of Node.js.
+
+Cons:
+- You definitely don’t want to use Node.js for CPU-intensive operations; in fact, using it for heavy computation will
+ annul nearly all of its advantages.
+-Using Node.js with a relational database is still quite a pain (see below for more detail). Do yourself a favour
+and pick up any other environment like Rails, Django, or ASP.Net MVC if you’re trying to perform relational operations
+-Relational DB tools for Node.js are still in their early stages; they’re rather immature and not as pleasant to work with.
+
+//see more in the image eventloop_vs_threads
+
+3. Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a
+Node.js based server architecture that still could take advantage of a multi-core Server.
+
+Reference here: http://blog.carbonfive.com/2014/02/28/taking-advantage-of-multi-processor-environments-in-node-js/
+
+-Cluster to parallelize the SAME Flow of Execution
+
+The cluster module. Introduced around version 0.8,
+its stated purpose is to handle heavy workload by launching a cluster of
+Node processes. Additionally, these processes can share the same server
+ports, making it ideal for web applications.
+
+-Cluster to parallelize the SAME Flow of Execution
+
+Reading how cluster works, you will discover it
+sits atop the other module we are interested in:
+child_process.
+
+The module supplies a number of methods to coordinate the launching of processes
+and communication between them. While the exec and
+spawn methods
+allow calling external commands, of interest to us is again the
+fork
+function.
+
+4.Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript + relevant packages
+
+    SEE Testing.js
+
+5.Explain, using relevant examples, the Express concept; middleware.
+
+    SEE Middleware.js
+
+6.Explain, using relevant examples, how to implement sessions, and the legal implications of doing this.
+
+    SEE app.js
+
+7.Compare the express strategy toward (server side) templating with the one you used with Java on second semester.
+
+    SEE app.js
+
+8.Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can
+"test" all the four CRUD operations programmatically using for example the Request package.
+
+    SEE app.js
+
+9.Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.
+
+    SEE app.js
+
+10. Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.
+
+    SEE app.js
+
+
+
+
+
